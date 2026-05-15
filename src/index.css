@@ -1,0 +1,214 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+#root {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* ── Título ── */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #0f172a;
+}
+
+/* ── Formulario ── */
+form {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+form label {
+    align-self: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+form input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+form input:focus {
+    border-color: #6366f1;
+}
+
+.submit-btn {
+    grid-column: span 2;
+    padding: 0.6rem 1.2rem;
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.submit-btn:hover {
+    background: #4f46e5;
+}
+
+form > button:not(.submit-btn) {
+    grid-column: span 2;
+    padding: 0.5rem;
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background 0.15s;
+}
+
+form > button:not(.submit-btn):hover {
+    background: #f1f5f9;
+}
+
+/* ── Búsqueda ── */
+.search-container {
+    margin-bottom: 1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.search-input:focus {
+    border-color: #6366f1;
+}
+
+/* ── Filtros ── */
+.filterbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.filter-btn {
+    padding: 0.35rem 0.85rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.filter-btn:hover {
+    background: #e0e7ff;
+    border-color: #6366f1;
+}
+
+.filter-btn-active {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: #fff;
+}
+
+/* ── Grid de cards ── */
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.grid > div {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.grid > div h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.grid > div p {
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.grid > div p:nth-child(3)::before { content: "$ "; font-weight: 600; color: #16a34a; }
+.grid > div p:nth-child(4)::before { content: "Stock: "; font-weight: 600; }
+
+/* ── Botones de card ── */
+.update-btn,
+.delete-btn {
+    margin-top: 0.75rem;
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.update-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+    margin-right: 0.5rem;
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.update-btn:hover,
+.delete-btn:hover {
+    opacity: 0.8;
+}
+
+.text-gray-600 {
+    color: #475569;
+    margin-top: 1rem;
+}
