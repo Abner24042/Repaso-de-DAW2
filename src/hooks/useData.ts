@@ -20,9 +20,9 @@ function useData() {
         }
     }
 
-    const insertarDatos = async (item: any) => {
+    const insertarDatos = async (nombre: string, descripcion: string, precio: string, stock: string, tipo: string) => {
         try {
-            const { error } = await supabase.from('medicamentos').insert([item]);
+            const { error } = await supabase.from('medicamentos').insert({ nombre, descripcion, precio, stock, tipo });
             if (error) {
                 console.log(error);
             }
@@ -33,9 +33,9 @@ function useData() {
         }
     }
 
-    const actualizarDatos = async (item: any) => {
+    const actualizarDatos = async (id: number, nombre: string, descripcion: string, precio: string, stock: string, tipo: string) => {
         try {
-            const { error } = await supabase.from('medicamentos').update(item).eq('id', item.id);
+            const { error } = await supabase.from('medicamentos').update({ nombre, descripcion, precio, stock, tipo }).eq('id', id);
             if (error) {
                 console.log(error);
             }
