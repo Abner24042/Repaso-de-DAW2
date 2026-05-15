@@ -16,8 +16,8 @@ interface Props {
         id: number;
         nombre: string;
         descripcion: string;
-        precio: number;
-        stock: number;
+        precio: string;
+        stock: string;
         tipo: string;
     }[]
     actualizar: (item: any) => void;
