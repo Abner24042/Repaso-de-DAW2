@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import type { Medicamento } from "../hooks/useData";
 
 interface Props {
-    insertarMedicamento: (nombre: string, descripcion: string, precio: string, stock: string, tipo: string) => void;
-    actualizarMedicamento: (id: number, nombre: string, descripcion: string, precio: string, stock: string, tipo: string) => void;
+    insertarMedicamento: (nombre: string, descripcion: string, precio: number, stock: number, tipo: string) => void;
+    actualizarMedicamento: (id: number, nombre: string, descripcion: string, precio: number, stock: number, tipo: string) => void;
     registroEditando: Medicamento | null;
     setRegistroEditando: (medicamento: Medicamento | null) => void;
 }
@@ -17,10 +17,10 @@ function Formulario({ insertarMedicamento, actualizarMedicamento, registroEditan
 
     const manejarSubmit = () => {
         if (registroEditando) {
-            actualizarMedicamento(registroEditando.id, nombre, descripcion, precio, stock, tipo);
+            actualizarMedicamento(registroEditando.id, nombre, descripcion, Number(precio), Number(stock), tipo);
             setRegistroEditando(null)
         } else {
-            insertarMedicamento(nombre, descripcion, precio, stock, tipo);
+            insertarMedicamento(nombre, descripcion, Number(precio), Number(stock), tipo);
         }
 
         setNombre('');
