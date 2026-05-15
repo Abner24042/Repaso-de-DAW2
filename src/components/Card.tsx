@@ -16,8 +16,8 @@ interface Props {
         id: number;
         nombre: string;
         descripcion: string;
-        precio: string;
-        stock: string;
+        precio: number;
+        stock: number;
         tipo: string;
     }[]
     actualizar: (item: any) => void;
@@ -79,9 +79,9 @@ function CardList({ items, actualizar, eliminar }: Props) {
                         <h3>{item.nombre}</h3>
                         <p>{item.descripcion}</p>
                         <p>{item.precio}</p>
-                        <p style={{ color: cantStock(parseInt(item.stock)), fontWeight: 900 }}>{item.stock}</p>
+                        <p style={{ color: cantStock(item.stock), fontWeight: 900 }}>{item.stock}</p>
                         <p>{item.tipo}</p>
-                        <p>Precio del Stock: $ {preciostock(parseInt(item.stock), parseInt(item.precio))}</p>
+                        <p>{preciostock(item.stock, item.precio)}</p>
                         <button onClick={() => actualizar(item)} className="update-btn">Actualizar</button>
                         <button onClick={() => eliminar(item.id)} className="delete-btn">Eliminar</button>
                     </div>
