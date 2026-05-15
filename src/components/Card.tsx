@@ -81,7 +81,7 @@ function CardList({ items, actualizar, eliminar }: Props) {
                         <p>{item.precio}</p>
                         <p style={{ color: cantStock(item.stock), fontWeight: 900 }}>{item.stock}</p>
                         <p>{item.tipo}</p>
-                        <p>{preciostock(item.stock, item.precio)}</p>
+                        <p>Precio del Stock: $ {preciostock(item.stock, item.precio)}</p>
                         <button onClick={() => actualizar(item)} className="update-btn">Actualizar</button>
                         <button onClick={() => eliminar(item.id)} className="delete-btn">Eliminar</button>
                     </div>
